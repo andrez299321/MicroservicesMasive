@@ -1,0 +1,45 @@
+version: '3.4'
+
+services:
+  rouletteapi:
+    image: ${DOCKER_REGISTRY-}rouletteapi
+    container_name: rouletteapi
+    build:
+      context: .
+      dockerfile: ../RouletteApi/Dockerfile
+    ports:
+      - "8081:80"
+    environment:
+      - URLDB=redis:6379
+    depends_on:
+            - redis
+  wagerapi:
+    image: ${DOCKER_REGISTRY-}wagerapi
+    container_name: wagerapi
+    build:
+      context: .
+      dockerfile: ../WagerApi/Dockerfile
+    ports:
+      - "8080:80"
+    environment:
+      - URLDB=redis:6379
+    depends_on:
+            - redis 
+  customerapi:
+    image: ${DOCKER_REGISTRY-}customerapi
+    container_name: customerapi
+    build:
+      context: .
+      dockerfile: ../customerApi/Dockerfile
+    ports:
+      - "8082:80"
+    environment:
+      - URLDB=redis:6379
+    depends_on:
+            - redis 
+  redis:
+    image: "redis:alpine"
+    command: redis-server
+    container_name: redis
+    ports:
+     - "6379:6379"

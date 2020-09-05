@@ -1,0 +1,50 @@
+services:
+  customerapi:
+    build:
+      context: C:\Users\user\source\Masive\MicroservicesMasive\Roulette
+      dockerfile: ../customerApi/Dockerfile
+    container_name: customerapi
+    depends_on:
+    - redis
+    environment:
+      URLDB: redis:6379
+    image: customerapi
+    ports:
+    - published: 8082
+      target: 80
+  redis:
+    command: redis-server
+    container_name: redis
+    image: redis:alpine
+    ports:
+    - published: 6379
+      target: 6379
+  rouletteapi:
+    build:
+      context: C:\Users\user\source\Masive\MicroservicesMasive\Roulette
+      dockerfile: ../RouletteApi/Dockerfile
+    container_name: rouletteapi
+    depends_on:
+    - redis
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      URLDB: redis:6379
+    image: rouletteapi
+    ports:
+    - published: 8081
+      target: 80
+    - target: 80
+  wagerapi:
+    build:
+      context: C:\Users\user\source\Masive\MicroservicesMasive\Roulette
+      dockerfile: ../WagerApi/Dockerfile
+    container_name: wagerapi
+    depends_on:
+    - redis
+    environment:
+      URLDB: redis:6379
+    image: wagerapi
+    ports:
+    - published: 8080
+      target: 80
+version: '3.4'

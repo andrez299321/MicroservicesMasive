@@ -1,0 +1,23 @@
+Endpoint creacion de ruletas
+http://localhost:8081/api/roulette/Insert
+
+Endpoint Apertura de ruletas
+http://localhost:8081/api/roulette/Open/1
+
+Endpoint apuesta
+http://localhost:8080/api/Wager/CreateWager
+header ->	user={id}
+body -> { "Color":"ROJO","Number":"10","Cash":"100","IdRoulette":"1"   }
+
+Endpoint listado Ruleta creadas
+http://localhost:8081/api/roulette/list
+
+Endpoint Cerrar ruleta y listar
+http://localhost:8080/api/Wager/ClosetWager/1
+
+Endpoint Crear Cliente
+http://localhost:8082/api/Customer/CreateCustomer
+body -> {    "Id":"3",    "Credit":"10002",    "Name":"camargo"}
+
+Endpoint Listar Clientes
+http://localhost:8082/api/customer/list

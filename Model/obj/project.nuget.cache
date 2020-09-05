@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "936s7IuwwD+8qpfmEg6rOiWRKwNRMP7/TlCFMSgkf4ems2Dh9UqBTWz0RG2cGBL5hLTaQoSM9ZwuS+akcX8iDQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\user\\source\\Masive\\MicroservicesMasive\\Model\\Models.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}
